@@ -26,7 +26,7 @@ The CNN model can be trained to classify images of particular resolution. For th
 ```
 limwenyao:~$ python SHVN_Alexnet -s 1 -dir ~/AlexNet
 ```
-If paths are not specified (saving or dataset path), the python file path will be used. Default model name saved as :
+If paths are not specified (saving or dataset path), the current directory will be used. Default model name saved as :
 ```
 train_(Interpolation)_x(Scale)
 ```
@@ -39,3 +39,5 @@ SRGAN trains by taking in HR/LR image pairs. Specify your target LR and HR image
 limwenyao:~$ python SHVN_SRGAN -lr 16 -hr 1 -cd ~/AlexNet -cm train_ground_truth_x1.meta -sd ~/SRGAN
 ```
 In your save directory, a randomly selected batch of train and eval images are saved (HR and LR). At each epoch, the same batch of super-resolved images are saved (LR images fed through generator of SRGAN). The terminal also shows the prediction accuracy of training images (train_pred) and validation images (eval_pred) that were fed through the SRGAN generator followed by AlexNet classifier.
+
+## Results
