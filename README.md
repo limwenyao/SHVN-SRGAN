@@ -1,5 +1,5 @@
 # SHVN-SRGAN
-Image Super Resolution using SRGAN on [Street View House Number](http://ufldl.stanford.edu/housenumbers/) (SHVN) dataset
+Image Super Resolution using [SRGAN](https://arxiv.org/abs/1609.04802) on [Street View House Number](http://ufldl.stanford.edu/housenumbers/) (SHVN) dataset
 ## Getting Started
 
 The aim is to observe how image Super Resolution improves classification accuracy of images. We have selected the SHVN cropped images dataset to test our hypothesis. We will be training a SRGAN model to super-resolve Low Resolution images, and validate its accuracy with a trained AlexNet model as well.
@@ -38,3 +38,4 @@ SRGAN trains by taking in HR/LR image pairs. Specify your target LR and HR image
 ```
 limwenyao:~$ python SHVN_SRGAN -lr 16 -hr 1 -cd ~/AlexNet -cm train_ground_truth_x1.meta -sd ~/SRGAN
 ```
+In your save directory, a randomly selected batch of train and eval images are saved (HR and LR). At each epoch, the same batch of super-resolved images are saved (LR images fed through generator of SRGAN). The terminal also shows the prediction accuracy of training images (train_pred) and validation images (eval_pred) that were fed through the SRGAN generator followed by AlexNet classifier.
