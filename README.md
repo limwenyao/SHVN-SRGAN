@@ -41,3 +41,15 @@ limwenyao:~$ python SHVN_SRGAN -lr 16 -hr 1 -cd ~/AlexNet -cm train_ground_truth
 In your save directory, a randomly selected batch of train and eval images are saved (HR and LR). At each epoch, the same batch of super-resolved images are saved (LR images fed through generator of SRGAN). The terminal also shows the prediction accuracy of training images (train_pred) and validation images (eval_pred) that were fed through the SRGAN generator followed by AlexNet classifier.
 
 ## Results
+### Low Resolution Scale 16 (8x8)
+![Low Resolution Scale 16 (8x8)](https://github.com/limwenyao/SHVN-SRGAN/blob/master/img/eval_LR.png)
+### SRGAN (8x8 -> 32x32)
+![SRGAN (8x8 -> 32x32)](https://github.com/limwenyao/SHVN-SRGAN/blob/master/img/eval_SR_050.png)
+### Original High Resolution (32x32)
+![Original High Resolution (32x32))](https://github.com/limwenyao/SHVN-SRGAN/blob/master/img/eval_HR.png)
+### Low Resolution Scale 64 (4x4)
+![Low Resolution Scale 64 (4x4)](https://github.com/limwenyao/SHVN-SRGAN/blob/master/img/eval_LRx64.png)
+### SRGAN (4x4 -> 32x32)
+![SRGAN (4x4 -> 32x32))](https://github.com/limwenyao/SHVN-SRGAN/blob/master/img/eval_SR_050x64.png)
+### Original High Resolution (32x32)
+![Original High Resolution (32x32)](https://github.com/limwenyao/SHVN-SRGAN/blob/master/img/eval_HRx64.png)
