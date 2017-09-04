@@ -9,19 +9,32 @@ The aim is to observe how image Super Resolution improves classification accurac
 * [Street View House Number Cropped Digits (32x32)](http://ufldl.stanford.edu/housenumbers/) (Minimally train and test)
 * Cloned copy of this repo
 
+## Naming References
+Image scaling
+
+| Scale | Resolution | Interpolation |
+| :---: |:----------:| :------------:|
+| 1     | 32x32      | ground_truth  |
+| 4     | 16x16      | bilinear      |
+| 16    | 8x8        | bilinear      |
+| 64    | 4x4        | bilinear      |
+
 ## Train CNN Classifier
 Run python script `SHVN_Alexnet` in command line. Use `-h` argument to see list of parsable arguments. Default arg values will be used if arguments not specified. 
 
 The CNN model can be trained to classify images of particular resolution. For the model to be trained on original High Resolution 32x32 images, use `-s 1`. For model to be trained on images downsampled to 16x16 (4x downsampling), use `-s 4`. 
 ```
-limwenyao:~$ python SHVN_Alexnet -s 1 -dir ~/savedir
+limwenyao:~$ python SHVN_Alexnet -s 1 -dir ~/AlexNet
 ```
 If paths are not specified (saving or dataset path), the python file path will be used. Default model name saved as :
 ```
-train_(ground_truth or bilinear)_x(downscale factor)
+train_(Interpolation)_x(Scale)
 ```
 
 ## Train SRGAN Image Super-Resolver
 Run python script `SHVN_SRGAN` in command line. Use `-h` argument to see list of parsable arguments. Default arg values will be used if arguments not specified. 
 
-
+SRGAN trains by taking in HR/LR image pairs. Specify your target LR and HR image scale with `-lr` and `-hr` args. Specify the trained AlexNet classifier model directory `-cd` and .meta file name `-cm`. Specify a new directory to save SRGAN model and sample images produced by SRGAN `-sd`.
+```
+limwenyao:~$ python SHVN_SRGAN -lr 16 -hr 1 -cd ~/AlexNet -cm train_ground_truth_x1.meta -sd ~/SRGAN
+```
