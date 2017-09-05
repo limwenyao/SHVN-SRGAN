@@ -46,15 +46,21 @@ The python script `SHVN_Evaluate.py` has two modes:
 * Evaluate SRGAN Generated images with AlexNet classifier model (with option to save generated images)
 
 ### Classifier model Evaluation
-* Run `SHVN_SRGAN.py` with argument `-gen False`. (Do not use SRGAN generator)
+* Run `SHVN_Evaluate.py` with argument `-gen False`. (Do not use SRGAN generator)
 * Indicate classifier target scale (scale of images trained on AlexNet model). You must already have that trained model saved in directory.
+```
+limwenyao:~$ python SHVN_Evaluate.py -gen False -cd ~/AlexNet -cm train_ground_truth_x1.meta
+```
 * Command line prints the prediction accuracy of the AlexNet model.
 
 ### SRGAN model Evaluation
-* Run `SHVN_SRGAN.py` with argument `-gen True`. (Use SRGAN generator)
+* Run `SHVN_Evaluate.py` with argument `-gen True`. (Use SRGAN generator)
 * Indicate classifier target scale (scale of images trained on AlexNet model). You must already have that trained model saved in directory.
 * Indicate Low Resolution image scale to be fed to SRGAN e.g. `-gs 16`
 * Indicate whether you want generated images saved to array `-gi True`
+```
+limwenyao:~$ python SHVN_Evaluate.py -gen True -cd ~/AlexNet -cm train_ground_truth_x1.meta -gd ~/SRGAN -gm srgan-svhn.model.meta -gi True
+```
 * Command line prints the prediction accuracy SRGAN generated images.
 
 ## Results
