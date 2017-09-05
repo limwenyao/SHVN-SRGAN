@@ -61,7 +61,7 @@ limwenyao:~$ python SHVN_Evaluate.py -gen False -cd ~/AlexNet -cm train_ground_t
 ```
 limwenyao:~$ python SHVN_Evaluate.py -gen True -cd ~/AlexNet -cm train_ground_truth_x1.meta -gd ~/SRGAN -gm srgan-svhn.model.meta -gi True
 ```
-* Command line prints the prediction accuracy SRGAN generated images.
+* Command line prints the prediction accuracy of SRGAN generated images fed to AlexNet model.
 
 ## Results
 ### Low Resolution Scale 16 (8x8)
