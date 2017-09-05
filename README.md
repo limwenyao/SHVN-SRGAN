@@ -40,6 +40,23 @@ limwenyao:~$ python SHVN_SRGAN.py -lr 16 -hr 1 -cd ~/AlexNet -cm train_ground_tr
 ```
 In your save directory, a randomly selected batch of train and eval images are saved (HR and LR). At each epoch, the same batch of super-resolved images are saved (LR images fed through generator of SRGAN). The terminal also shows the prediction accuracy of training images (train_pred) and validation images (eval_pred) that were fed through the SRGAN generator followed by AlexNet classifier.
 
+## Evaluation
+The python script `SHVN_Evaluate.py` has two modes:
+* Evaluate AlexNet Classifier model only
+* Evaluate SRGAN Generated images with AlexNet classifier model (with option to save generated images)
+
+### Classifier model Evaluation
+* Run `SHVN_SRGAN.py` with argument `-gen False`. (Do not use SRGAN generator)
+* Indicate classifier target scale (scale of images trained on AlexNet model). You must already have that trained model saved in directory.
+* Command line prints the prediction accuracy of the AlexNet model.
+
+### SRGAN model Evaluation
+* Run `SHVN_SRGAN.py` with argument `-gen True`. (Use SRGAN generator)
+* Indicate classifier target scale (scale of images trained on AlexNet model). You must already have that trained model saved in directory.
+* Indicate Low Resolution image scale to be fed to SRGAN e.g. `-gs 16`
+* Indicate whether you want generated images saved to array `-gi True`
+* Command line prints the prediction accuracy SRGAN generated images.
+
 ## Results
 ### Low Resolution Scale 16 (8x8)
 ![Low Resolution Scale 16 (8x8)](https://github.com/limwenyao/SHVN-SRGAN/blob/master/img/eval_LR.png)
